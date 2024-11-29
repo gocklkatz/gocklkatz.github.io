@@ -1,0 +1,86 @@
+body {
+    margin: 0px;
+}
+
+.pad {
+    padding: 25px;
+}
+
+.header {
+    background-color: lightblue;
+    color: green;
+    height: 50px;
+    width: 850px;
+    font-size: 36pt;
+    text-align: center;
+}
+
+.welcome {
+    background-color: plum;
+    color: white;
+    width: 900px;
+    font-size: 16pt;
+    text-align: center;
+    height: 30px;
+    margin: 0px;
+}
+
+.section1 {
+    background-color: beige;
+    height: 300px;
+    width: 900px;
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.section2 {
+    background-color: cadetblue;
+    height: 300px;
+    width: 900px;
+    font-family: 'Public Sans', sans-serif;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+/* css for breadcrum navigation */
+
+/* Style the list */
+ul.menu {
+    padding: 10px 16px;
+    list-style: none;
+    background-color: #eee;
+    width: 868px;
+}
+
+/* Display list items side by side */
+ul.menu li {
+    display: inline;
+    font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.slash li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+}
+
+/* Add a pipe symbol (|) before/behind each list item */
+ul.pipe li+li:before {
+    padding: 8px;
+    color: black;
+    content: "\007C\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.menu li a {
+    color: #0275d8;
+    text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.menu li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+}
