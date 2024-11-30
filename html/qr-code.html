@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Frontend Mentor | QR code component</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/mycss.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .outfit-400 {
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .outfit-700 {
+        font-family: "Outfit", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      #qr-code-article {
+        background-color: white;
+        margin: 25px;
+        border-radius: 25px;
+        width: 250px;
+        text-align: center;
+        margin: auto;
+      }
+
+      #qr-code-img {
+        margin: 25px;
+        border-radius: 25px;
+        max-width: 80%;
+      }
+
+      #qr-code-text {
+        margin: 25px;
+        color: gray;
+      }
+
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: gray;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header pad">Gocklkatz Lair</div>
+
+    <div>
+      <p class="welcome">QR Code Challenge from Frontend Mentor</p>
+    </div>
+
+    <div>
+      <ul class="menu pipe">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./qr-code.html">QR Code</a></li>
+        <li><a href="./xfiles.html">X-Files AI art</a></li>
+        <li><a href="./jsfps.html">JavaScript FPS</a></li>
+      </ul>
+    </div>
+
+    <div style="width: 900px;">
+      <article id="qr-code-article">
+        <img id="qr-code-img" src="../img/qr-code.png" alt="QR code image" />
+
+        <div id="qr-code-tag-line" class="outfit-700">
+          Improve your front-end skills by building projects
+        </div>
+
+        <div id="qr-code-text" class="outfit-400">
+          Scan the QR code to visit Frontend Mentor and take your coding skills
+          to the next level
+        </div>
+
+        <br />
+      </article>
+
+      <br />
+
+      <footer>
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by
+          <a href="https://gocklkatz.github.io/" target="_blank">Gocklkatz</a>.
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
