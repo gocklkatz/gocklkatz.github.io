@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reaction Time</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/mycss.css" />
+    <style>
+      #spielenButton {
+        margin-bottom: 1px;
+      }
+
+      #spielfeld {
+        background: url("../img/GameBackground.jpg");
+        background-size: cover;
+        border: 1px solid black;
+        border-radius: 2px;
+        background-color: gray;
+        height: 350px;
+        width: 650px;
+      }
+
+      .person {
+        background: url("../img/guest.jpg");
+        background-size: cover;
+        background-color: lightblue;
+        width: 120px;
+        height: 120px;
+        padding: 10px;
+        margin: 10px;
+        float: left;
+        display: none;
+      }
+
+      .dieb {
+        background: url("../img/thief.jpg");
+        background-size: cover;
+      }
+
+      .versteckt {
+        display: none;
+      }
+
+      .sichtbar {
+        display: block;
+      }
+    </style>
+    <script>
+      var personenSichtbar = false;
+      var zaehler = 0;
+      var punktestand = 0;
+      var alreadyHit = false;
+
+      function startSpiel() {
+        document.getElementById("spielenButton").disabled = true;
+        spielSchleife();
+      }
+
+      function spielSchleife() {
+        personenSichtbar = !personenSichtbar;
+        alreadyHit = false;
+        erstellePersonen();
+
+        zaehler++;
+        if (zaehler < 12) {
+          if (personenSichtbar) {
+            console.log(zaehler + "; " + personenSichtbar + "; " + punktestand);
+          }
+          setTimeout(spielSchleife, personenSichtbar ? 1000 : 3000);
+        } else {
+          alert("Deine Punkte: " + punktestand);
+        }
+      }
+
+      function erstellePersonen() {
+        var spielfeld = document.getElementById("spielfeld");
+        var anzahlKarten = spielfeld.childElementCount;
+        var zuSetzendeKlasse = personenSichtbar
+          ? "person sichtbar"
+          : "person versteckt";
+        for (var index = 0; index < anzahlKarten; index++) {
+          spielfeld.children[index].className = zuSetzendeKlasse;
+          spielfeld.children[index].onclick = function () {
+            if (!alreadyHit) {
+              alreadyHit = true;
+              console.log("Gast");
+              punktestand += -2;
+            }
+          };
+        }
+        var zufallszahl = Math.floor(Math.random() * anzahlKarten);
+        spielfeld.children[zufallszahl].onclick = function () {
+          if (!alreadyHit) {
+            alreadyHit = true;
+            console.log("Dieb");
+            punktestand++;
+          }
+        };
+        spielfeld.children[zufallszahl].className = zuSetzendeKlasse + " dieb";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="header pad">Gocklkatz Lair</div>
+
+    <div>
+      <p class="welcome">Train your reaction time</p>
+    </div>
+
+    <div>
+      <ul class="menu pipe">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./securitygame.html">Reaction Time</a></li>
+        <li><a href="./qr-code.html">QR Code</a></li>
+        <li><a href="./xfiles.html">X-Files AI art</a></li>
+        <li><a href="./jsfps.html">JavaScript FPS</a></li>
+      </ul>
+    </div>
+
+    <input
+      id="spielenButton"
+      type="button"
+      value="Play"
+      onclick="startSpiel();"
+    />
+    <div id="spielfeld">
+      <div class="person dieb"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+      <div class="person"></div>
+    </div>
+    <p style="width: 650px;">
+      The goal is to train your reaction speed! Click the 'Play' button and try
+      to click on the thief. After 6 rounds the result will be displayed. Good
+      look!
+    </p>
+  </body>
+</html>
