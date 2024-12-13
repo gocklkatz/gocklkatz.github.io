@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap");
 
 body {
-    font-family: Inconsolata;
+  font-family: Inconsolata;
 }
 
 .kopfzeile {
@@ -79,4 +79,13 @@ body {
   box-shadow: 2px 2px 2px 2px #a2d2ff;
   transform: translateY(-0.25em);
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .kopf2 {
+    font-size: 1em;
+  }
+  .main div {
+    padding: 20px 40px;
+  }
 }
