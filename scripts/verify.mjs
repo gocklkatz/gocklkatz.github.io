@@ -8,6 +8,7 @@ const INDEX = path.join(ROOT, "dist", "index.html");
 const REQUIRED_STRINGS = [
   "Gocklkatz Inc",
   "AI Enhanced Software Development",
+  ">Gocklkatz Inc</h1>",
   "gocklkatz@gmail.com",
   "mailto:gocklkatz@gmail.com",
   "Hermito Katt",

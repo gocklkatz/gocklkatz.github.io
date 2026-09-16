@@ -9,8 +9,9 @@ export const site = {
   title: "Gocklkatz Inc — AI Enhanced Software Development",
   description:
     "Gocklkatz Inc provides AI Enhanced Software Development: AI-assisted delivery that produces complete, independently deployable, verified builds — with humans retaining goals, judgment, acceptance, and accountability.",
-  eyebrow: "Gocklkatz Inc",
-  headline: "AI Enhanced Software Development",
+  eyebrow: "Company site",
+  headline: "Gocklkatz Inc",
+  displayTagline: "AI Enhanced Software Development",
   intro:
     "AI systems assist discovery, implementation, verification, and operations across the delivery loop, while humans retain goals, judgment, acceptance, and accountability. Gocklkatz Inc uses AI to accelerate exploration, produce and refine working software, strengthen tests and reviews, and improve operational feedback — without treating model output as unsupervised product.",
   claim:

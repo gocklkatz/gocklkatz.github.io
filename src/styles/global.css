@@ -173,12 +173,22 @@ a:hover {
 }
 
 .hero h1 {
-  max-width: 16ch;
-  margin: 0 0 1.25rem;
-  font-size: clamp(2.25rem, 5.8vw, 3.7rem);
+  max-width: 14ch;
+  margin: 0 0 0.55rem;
+  font-size: clamp(2.55rem, 6.4vw, 4.1rem);
   font-weight: 600;
-  letter-spacing: -0.035em;
-  line-height: 1.08;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.hero__tagline {
+  max-width: 22ch;
+  margin: 0 0 1.35rem;
+  color: var(--accent);
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .lede {
