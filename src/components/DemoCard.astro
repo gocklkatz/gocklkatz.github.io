@@ -1,0 +1,23 @@
+---
+import type { Demo } from "../data/demos";
+
+interface Props {
+  demo: Demo;
+}
+
+const { demo } = Astro.props;
+---
+
+<article class="card" data-demo={demo.slug} data-status="live">
+  <header class="card__head">
+    <h3>{demo.name}</h3>
+    <span class="badge">Live</span>
+  </header>
+  <p class="card__description">{demo.description}</p>
+  <p class="card__claim">{demo.claim}</p>
+  <p>
+    <a class="card__link" href={demo.url} rel="noopener noreferrer">
+      Open the demo <span aria-hidden="true">→</span>
+    </a>
+  </p>
+</article>

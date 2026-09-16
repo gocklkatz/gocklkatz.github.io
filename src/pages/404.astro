@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+---
+
+<Base title={`Page not found — ${site.company}`}>
+  <Header />
+  <main id="main" class="not-found">
+    <div class="wrap">
+      <p class="eyebrow">404</p>
+      <h1>This page is not part of the company site.</h1>
+      <p class="lede">
+        The public front door is the homepage. Demo applications live on their own
+        Vercel hosts, linked from there.
+      </p>
+      <a class="button button--primary" href="/">Back to Gocklkatz Inc</a>
+    </div>
+  </main>
+  <Footer />
+</Base>

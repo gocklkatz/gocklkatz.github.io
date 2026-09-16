@@ -1,0 +1,100 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import DemoCard from "../components/DemoCard.astro";
+import { demos } from "../data/demos";
+import { site } from "../data/site";
+---
+
+<Base>
+  <Header />
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">{site.eyebrow}</p>
+        <h1>{site.headline}</h1>
+        <p class="lede">{site.intro}</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#work">View the work</a>
+          <a class="button button--ghost" href={site.contactMailto}>Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__kicker">The work</p>
+          <h2 id="work-heading">Four independently deployed demos</h2>
+          <p class="section__intro">
+            Each card opens a live Vercel project. The applications are not hosted on this
+            site; this page is the company front door.
+          </p>
+        </div>
+        <div class="demo-grid">
+          {demos.map((demo) => <DemoCard demo={demo} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach" aria-labelledby="approach-heading">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__kicker">Approach</p>
+          <h2 id="approach-heading">{site.tagline}</h2>
+          <p class="section__intro">
+            {site.company} ships a small number of complete applications rather than a
+            catalogue of sketches. Public work is published under the company name;
+            the public author is {site.author}.
+          </p>
+        </div>
+        <div class="principles">
+          <article class="principle">
+            <h3>Complete builds</h3>
+            <p>
+              Each demo owns its dependencies, tests, and quality gate. One project’s
+              breakage is not allowed to take another down.
+            </p>
+          </article>
+          <article class="principle">
+            <h3>Independent deploys</h3>
+            <p>
+              Every application has its own Vercel project, so it can be built, shared,
+              and rolled back on its own.
+            </p>
+          </article>
+          <article class="principle">
+            <h3>Verified by running</h3>
+            <p>
+              A green CI job is not the product. The work is checked by opening the
+              deployed application and using it.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__kicker">Contact</p>
+          <h2 id="contact-heading">Talk to the company</h2>
+          <p class="section__intro">
+            Public contact is a single address. Use it for project conversations,
+            engineering questions, and anything that should reach Gocklkatz Inc.
+          </p>
+        </div>
+        <div class="contact-panel">
+          <p>
+            <a href={site.contactMailto}>{site.contactEmail}</a>
+          </p>
+          <p class="section__intro">
+            mailto is enough — there is no form on this site and no other public inbox.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

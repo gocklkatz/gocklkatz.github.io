@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Gocklkatz Inc">
+  <rect width="32" height="32" rx="7" fill="#0b1017"/>
+  <rect x="1.2" y="1.2" width="29.6" height="29.6" rx="6" fill="none" stroke="#ffc043" stroke-width="1.4"/>
+  <path fill="#ffc043" d="M10 23V9h6.1c3.1 0 5.1 1.8 5.1 4.5 0 1.8-.9 3.2-2.4 3.9L22.4 23h-3.6l-3.3-5.2H13.4V23H10zm3.4-8.1h2.5c1.4 0 2.2-.8 2.2-1.9s-.8-1.9-2.2-1.9h-2.5v3.8z"/>
+</svg>
