@@ -4,73 +4,142 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import DemoCard from "../components/DemoCard.astro";
 import { demos } from "../data/demos";
-import { site } from "../data/site";
+import {
+  site,
+  audience,
+  proof,
+  teaser,
+  demosSection,
+} from "../data/site";
+import { services, servicesIntro } from "../data/services";
 ---
 
 <Base>
   <Header />
   <main id="main">
-    <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">{site.eyebrow}</p>
-        <h1>{site.headline}</h1>
-        <p class="lede">{site.intro}</p>
-        <div class="hero__actions">
-          <a class="button button--primary" href="#work">View the work</a>
-          <a class="button button--ghost" href={site.contactMailto}>Contact</a>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow reveal">{site.eyebrow}</p>
+          <h1 id="hero-heading" class="reveal reveal--delay-1">{site.headline}</h1>
+          <p class="lede reveal reveal--delay-2">{site.intro}</p>
+          <p class="hero__claim reveal reveal--delay-3">{site.claim}</p>
+          <p class="hero__author reveal reveal--delay-3">
+            <span class="hero__author-label">{site.authorLabel}</span>
+            {site.author}
+          </p>
+          <div class="hero__actions reveal reveal--delay-4">
+            <a class="button button--primary" href="#services">View services</a>
+            <a class="button button--ghost" href={site.contactMailto}>Contact</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-heading">
+    <section class="section" id="services" aria-labelledby="services-heading">
       <div class="wrap">
         <div class="section__head">
-          <p class="section__kicker">The work</p>
-          <h2 id="work-heading">Four independently deployed demos</h2>
-          <p class="section__intro">
-            Each card opens a live Vercel project. The applications are not hosted on this
-            site; this page is the company front door.
-          </p>
+          <p class="section__kicker">{servicesIntro.kicker}</p>
+          <h2 id="services-heading">{servicesIntro.heading}</h2>
+          <p class="section__intro">{servicesIntro.lead}</p>
         </div>
-        <div class="demo-grid">
-          {demos.map((demo) => <DemoCard demo={demo} />)}
+
+        <p class="split-note" role="note">
+          <strong>Human / AI split.</strong>
+          {servicesIntro.humanAi}
+        </p>
+
+        <ol class="service-list">
+          {
+            services.map((service, index) => (
+              <li class="service">
+                <span class="service__index" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div class="service__body">
+                  <h3>{service.name}</h3>
+                  <p class="service__do">
+                    <span class="service__label">What we do</span>
+                    {service.whatWeDo}
+                  </p>
+                  <p class="service__outcome">
+                    <span class="service__label">Outcome you can check</span>
+                    {service.outcome}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+
+        <div class="audience">
+          <div>
+            <h3>Who it’s for</h3>
+            <p>{audience.primary}</p>
+          </div>
+          <div>
+            <h3>Not targeting</h3>
+            <p>{audience.notTargeting}</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="approach" aria-labelledby="approach-heading">
+    <section class="section" id="proof" aria-labelledby="proof-heading">
       <div class="wrap">
         <div class="section__head">
-          <p class="section__kicker">Approach</p>
-          <h2 id="approach-heading">{site.tagline}</h2>
-          <p class="section__intro">
-            {site.company} ships a small number of complete applications rather than a
-            catalogue of sketches. Public work is published under the company name;
-            the public author is {site.author}.
-          </p>
+          <p class="section__kicker">Proof / process</p>
+          <h2 id="proof-heading">{proof.heading}</h2>
+          <p class="section__intro">{proof.intro}</p>
         </div>
         <div class="principles">
-          <article class="principle">
-            <h3>Complete builds</h3>
-            <p>
-              Each demo owns its dependencies, tests, and quality gate. One project’s
-              breakage is not allowed to take another down.
-            </p>
-          </article>
-          <article class="principle">
-            <h3>Independent deploys</h3>
-            <p>
-              Every application has its own Vercel project, so it can be built, shared,
-              and rolled back on its own.
-            </p>
-          </article>
-          <article class="principle">
-            <h3>Verified by running</h3>
-            <p>
-              A green CI job is not the product. The work is checked by opening the
-              deployed application and using it.
-            </p>
-          </article>
+          {
+            proof.principles.map((principle) => (
+              <article class="principle">
+                <h3>{principle.title}</h3>
+                <p>{principle.body}</p>
+              </article>
+            ))
+          }
+        </div>
+        <p class="proof-source">
+          Engineering source of truth:
+          {" "}
+          <a href={site.sourceUrl} rel="noopener noreferrer">{site.sourceLabel}</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--teaser" id="showcase" aria-labelledby="showcase-heading">
+      <div class="wrap">
+        <div class="teaser">
+          <div class="teaser__meta">
+            <p class="section__kicker">{teaser.kicker}</p>
+            <div class="teaser__status" role="status">
+              <span class="status-badge">{teaser.status}</span>
+              <span class="status-detail">{teaser.statusDetail}</span>
+            </div>
+          </div>
+          <h2 id="showcase-heading">{teaser.title}</h2>
+          <p class="teaser__concept">{teaser.concept}</p>
+          <p class="teaser__stack">
+            <span class="service__label">Stack</span>
+            {teaser.stack}
+          </p>
+          <p class="teaser__honesty">{teaser.honesty}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--secondary" id="demos" aria-labelledby="demos-heading">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="section__kicker">{demosSection.kicker}</p>
+          <h2 id="demos-heading">{demosSection.heading}</h2>
+          <p class="section__intro">{demosSection.intro}</p>
+        </div>
+        <div class="demo-grid demo-grid--secondary">
+          {demos.map((demo) => <DemoCard demo={demo} />)}
         </div>
       </div>
     </section>
@@ -79,7 +148,7 @@ import { site } from "../data/site";
       <div class="wrap">
         <div class="section__head">
           <p class="section__kicker">Contact</p>
-          <h2 id="contact-heading">Talk to the company</h2>
+          <h2 id="contact-heading">Email only</h2>
           <p class="section__intro">
             Public contact is a single address. Use it for project conversations,
             engineering questions, and anything that should reach Gocklkatz Inc.

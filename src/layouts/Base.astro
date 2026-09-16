@@ -21,9 +21,11 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta name="description" content={description} />
     <meta name="author" content={site.author} />
     <meta name="theme-color" content="#0b1017" />
+    <meta name="robots" content="index,follow" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />

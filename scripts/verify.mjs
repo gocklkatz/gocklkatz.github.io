@@ -10,7 +10,21 @@ const REQUIRED_STRINGS = [
   "AI Enhanced Software Development",
   "gocklkatz@gmail.com",
   "mailto:gocklkatz@gmail.com",
-  "Four demo applications, each one deployed and running on its own.",
+  "Hermito Katt",
+  "AI-enabled delivery",
+  "AI feature / product engineering",
+  "Modernization &amp; automation",
+  "Engineering quality systems",
+  "Who it’s for",
+  "Not targeting",
+  "Complete builds",
+  "Independent deploys",
+  "Verified by running",
+  "LLM NPC Showcase",
+  "Work in progress",
+  "Not playable yet",
+  "Three.js",
+  "Existing demos",
   "https://gocklkatz-ameisenwerkstatt.vercel.app",
   "https://gocklkatz-bienenstock.vercel.app",
   "https://gocklkatz-simplified.vercel.app",
@@ -26,6 +40,12 @@ const FORBIDDEN_STRINGS = [
   ">Games<",
   ">Coding<",
   ">vLog<",
+  "Four demo applications, each one deployed and running on its own.",
+  "Play now",
+  "coming Q",
+  "Stefan",
+  "Katzensteiner",
+  "s.katzensteiner",
 ];
 
 const DEMO_URLS = [
@@ -56,7 +76,7 @@ for (const needle of REQUIRED_STRINGS) {
 
 for (const needle of FORBIDDEN_STRINGS) {
   if (html.includes(needle)) {
-    throw new Error(`Built homepage still contains retired copy: ${needle}`);
+    throw new Error(`Built homepage still contains retired or forbidden copy: ${needle}`);
   }
 }
 
@@ -64,7 +84,29 @@ if (!html.includes("<main")) {
   throw new Error("Built homepage is missing a <main> landmark.");
 }
 
+const sectionOrder = [
+  'id="services"',
+  'id="proof"',
+  'id="showcase"',
+  'id="demos"',
+  'id="contact"',
+];
+
+let cursor = -1;
+for (const marker of sectionOrder) {
+  const index = html.indexOf(marker);
+  if (index === -1) {
+    throw new Error(`Built homepage is missing section marker: ${marker}`);
+  }
+  if (index <= cursor) {
+    throw new Error(`Section order violated around ${marker}`);
+  }
+  cursor = index;
+}
+
 const results = await Promise.all(DEMO_URLS.map(assertStatus));
 void results;
 
-console.log("verify: homepage copy, landmarks, and four live demo URLs (HTTP 200) OK");
+console.log(
+  "verify: company-first IA, services, teaser honesty, landmarks, and four live demo URLs (HTTP 200) OK",
+);
