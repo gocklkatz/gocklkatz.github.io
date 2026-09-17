@@ -4,6 +4,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const INDEX = path.join(ROOT, "dist", "index.html");
+const CASE_STUDY = path.join(ROOT, "dist", "aesd-case-study", "index.html");
 
 const REQUIRED_STRINGS = [
   "Gocklkatz Inc",
@@ -32,6 +33,8 @@ const REQUIRED_STRINGS = [
   "https://gocklkatz-arbeitsmarkt.vercel.app",
   "https://github.com/gocklkatz/portfolio",
   "Open the demo",
+  "Open the AESD case study",
+  "/aesd-case-study",
 ];
 
 const FORBIDDEN_STRINGS = [
@@ -47,6 +50,40 @@ const FORBIDDEN_STRINGS = [
   "Stefan",
   "Katzensteiner",
   "s.katzensteiner",
+];
+
+const CASE_STUDY_REQUIRED = [
+  "AESD on LLM-NPC",
+  "The AESD delivery loop",
+  "Goals",
+  "Discovery",
+  "Judgment",
+  "Implementation",
+  "Verification",
+  "Acceptance",
+  "Ops feedback",
+  "Order the brief",
+  "Spike",
+  "Vertical slice",
+  "Gate + human acceptance",
+  "https://github.com/gocklkatz/llm-npc",
+  "Not a public playable launch",
+  "DeepSeek is not live",
+  "Work in progress",
+  "Not playable yet",
+  "Hermito Katt",
+];
+
+const CASE_STUDY_FORBIDDEN = [
+  "Play now",
+  "Stefan",
+  "Katzensteiner",
+  "s.katzensteiner",
+  "GOC-77",
+  "GOC-78",
+  "GOC-79",
+  "GOC-81",
+  "Tracking",
 ];
 
 const DEMO_URLS = [
@@ -67,7 +104,14 @@ if (!existsSync(INDEX)) {
   throw new Error("dist/index.html is missing. Run `npm run build` first.");
 }
 
+if (!existsSync(CASE_STUDY)) {
+  throw new Error(
+    "dist/aesd-case-study/index.html is missing. Run `npm run build` first.",
+  );
+}
+
 const html = await readFile(INDEX, "utf8");
+const caseHtml = await readFile(CASE_STUDY, "utf8");
 
 for (const needle of REQUIRED_STRINGS) {
   if (!html.includes(needle)) {
@@ -78,6 +122,20 @@ for (const needle of REQUIRED_STRINGS) {
 for (const needle of FORBIDDEN_STRINGS) {
   if (html.includes(needle)) {
     throw new Error(`Built homepage still contains retired or forbidden copy: ${needle}`);
+  }
+}
+
+for (const needle of CASE_STUDY_REQUIRED) {
+  if (!caseHtml.includes(needle)) {
+    throw new Error(`Built case study is missing required copy: ${needle}`);
+  }
+}
+
+for (const needle of CASE_STUDY_FORBIDDEN) {
+  if (caseHtml.includes(needle)) {
+    throw new Error(
+      `Built case study still contains retired or forbidden copy: ${needle}`,
+    );
   }
 }
 
@@ -105,9 +163,26 @@ for (const marker of sectionOrder) {
   cursor = index;
 }
 
+const servicesIdx = html.indexOf('id="services"');
+const proofIdx = html.indexOf('id="proof"');
+const showcaseIdx = html.indexOf('id="showcase"');
+const caseCalloutIdx = html.indexOf("Open the AESD case study");
+if (
+  caseCalloutIdx === -1 ||
+  caseCalloutIdx < proofIdx ||
+  caseCalloutIdx > showcaseIdx
+) {
+  throw new Error(
+    "AESD case study callout must appear in the proof section (before showcase).",
+  );
+}
+if (servicesIdx >= proofIdx) {
+  throw new Error("Services must remain above proof in homepage IA.");
+}
+
 const results = await Promise.all(DEMO_URLS.map(assertStatus));
 void results;
 
 console.log(
-  "verify: company-first IA, services, teaser honesty, landmarks, and four live demo URLs (HTTP 200) OK",
+  "verify: company-first IA, services, AESD case study, teaser honesty, landmarks, and four live demo URLs (HTTP 200) OK",
 );

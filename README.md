@@ -10,7 +10,7 @@ This repository is **only** the company site. Demo applications stay on Vercel; 
 
 1. **Company positioning** — AI Enhanced Software Development; public author Hermito Katt
 2. **Services / outcomes** — four concrete offerings, who it’s for, and the human/AI responsibility split
-3. **Proof / process** — complete builds, independent deploys, verified by running
+3. **Proof / process** — complete builds, independent deploys, verified by running; AESD case study on the LLM-NPC mock vertical slice (`/aesd-case-study`)
 4. **Demonstration product teaser** — LLM NPC Showcase (Three.js); status *Work in progress / Not playable yet*
 5. **Existing demos (secondary proof)** — live Vercel hosts retained:
    - [Ameisenwerkstatt](https://gocklkatz-ameisenwerkstatt.vercel.app)
