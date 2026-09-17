@@ -1,5 +1,9 @@
 ---
 import { site } from "../data/site";
+import { caseStudy } from "../data/case-study";
+
+const onHome = Astro.url.pathname === "/" || Astro.url.pathname === "";
+const section = (id: string) => (onHome ? `#${id}` : `/#${id}`);
 ---
 
 <header class="site-header">
@@ -9,11 +13,12 @@ import { site } from "../data/site";
       <span class="brand__tagline">{site.tagline}</span>
     </a>
     <nav class="nav" aria-label="Primary">
-      <a href="#services">Services</a>
-      <a href="#proof">Proof</a>
-      <a href="#showcase">Showcase</a>
-      <a href="#demos">Demos</a>
-      <a href="#contact">Contact</a>
+      <a href={section("services")}>Services</a>
+      <a href={section("proof")}>Proof</a>
+      <a href={caseStudy.path}>Case study</a>
+      <a href={section("showcase")}>Showcase</a>
+      <a href={section("demos")}>Demos</a>
+      <a href={section("contact")}>Contact</a>
     </nav>
   </div>
 </header>

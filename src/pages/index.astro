@@ -12,6 +12,7 @@ import {
   demosSection,
 } from "../data/site";
 import { services, servicesIntro } from "../data/services";
+import { caseStudy } from "../data/case-study";
 ---
 
 <Base>
@@ -103,6 +104,16 @@ import { services, servicesIntro } from "../data/services";
             ))
           }
         </div>
+        <aside class="case-study-callout" aria-labelledby="case-study-callout-heading">
+          <p class="section__kicker">Case study</p>
+          <h3 id="case-study-callout-heading">{caseStudy.homepageLink.label}</h3>
+          <p>{caseStudy.homepageLink.blurb}</p>
+          <p>
+            <a class="card__link" href={caseStudy.path}>
+              Open the AESD case study <span aria-hidden="true">→</span>
+            </a>
+          </p>
+        </aside>
         <p class="proof-source">
           Engineering source of truth:
           {" "}

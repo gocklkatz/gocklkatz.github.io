@@ -1,0 +1,126 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+import { caseStudy } from "../data/case-study";
+---
+
+<Base title={`${caseStudy.title} — ${site.company}`} description={caseStudy.description}>
+  <Header />
+  <main id="main">
+    <article class="case-study">
+      <header class="section case-study__hero">
+        <div class="wrap case-study__hero-inner">
+          <p class="eyebrow reveal">{caseStudy.kicker}</p>
+          <h1 id="case-heading" class="reveal reveal--delay-1">{caseStudy.heading}</h1>
+          <p class="lede reveal reveal--delay-2">{caseStudy.lead}</p>
+          <div class="teaser__status reveal reveal--delay-3" role="status">
+            <span class="status-badge">{caseStudy.status.badge}</span>
+            <span class="status-detail">{caseStudy.status.detail}</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="problem-heading">
+        <div class="wrap prose">
+          <h2 id="problem-heading">{caseStudy.problem.title}</h2>
+          <p>{caseStudy.problem.body}</p>
+          <h2 id="method-heading">{caseStudy.method.title}</h2>
+          <p>{caseStudy.method.body}</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="loop-heading">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="section__kicker">Human / AI</p>
+            <h2 id="loop-heading">{caseStudy.loop.title}</h2>
+            <p class="section__intro">{caseStudy.loop.intro}</p>
+          </div>
+          <ol class="aesd-loop">
+            {
+              caseStudy.loop.steps.map((step, index) => (
+                <li class="aesd-loop__item">
+                  <span class="aesd-loop__index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div class="aesd-loop__body">
+                    <div class="aesd-loop__title-row">
+                      <h3>{step.name}</h3>
+                      <span class="owner-badge">{step.owner}</span>
+                    </div>
+                    <p>{step.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="delivery-heading">
+        <div class="wrap">
+          <div class="section__head">
+            <p class="section__kicker">Delivery</p>
+            <h2 id="delivery-heading">{caseStudy.delivery.title}</h2>
+            <p class="section__intro">{caseStudy.delivery.intro}</p>
+          </div>
+          <ol class="delivery-steps">
+            {
+              caseStudy.delivery.steps.map((step, index) => (
+                <li class="delivery-step">
+                  <span class="service__index" aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tools-heading">
+        <div class="wrap prose">
+          <h2 id="tools-heading">{caseStudy.tools.title}</h2>
+          <ul class="tools-list">
+            {caseStudy.tools.items.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section--teaser" aria-labelledby="status-heading">
+        <div class="wrap">
+          <div class="teaser">
+            <div class="teaser__meta">
+              <p class="section__kicker">Honest status</p>
+              <div class="teaser__status" role="status">
+                <span class="status-badge">{caseStudy.status.badge}</span>
+                <span class="status-detail">{caseStudy.status.detail}</span>
+              </div>
+            </div>
+            <h2 id="status-heading">{caseStudy.status.title}</h2>
+            <p class="teaser__honesty">{caseStudy.status.body}</p>
+            <p class="proof-source">
+              {caseStudy.engineering.label}:
+              {" "}
+              <a href={caseStudy.engineering.url} rel="noopener noreferrer">
+                {caseStudy.engineering.display}
+              </a>
+            </p>
+            <p class="section__intro">{caseStudy.engineering.note}</p>
+            <p class="case-study__back">
+              <a class="button button--ghost" href="/#proof">Back to proof / process</a>
+              <a class="button button--ghost" href="/#showcase">Showcase teaser</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <Footer />
+</Base>
