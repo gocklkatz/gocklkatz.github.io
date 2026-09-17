@@ -11,10 +11,6 @@ export const caseStudy = {
   heading: "AESD on LLM-NPC",
   lead:
     "A short case study of how Gocklkatz Inc practiced AI Enhanced Software Development while building the demonstration product through its first mock vertical slice — without claiming a public playable launch.",
-  problem: {
-    title: "The chicken-and-egg",
-    body: "Selling AI Enhanced Software Development requires proof of the method. Building that proof requires shipping something complete enough to show goals, judgment, gates, and acceptance — not a slide deck. The LLM-NPC track became both product and lab: invent the method by running it.",
-  },
   method: {
     title: "Method before scenery",
     body: "Human-owned goals came first. Discovery and implementation were AI-assisted. Judgment, acceptance, and accountability stayed with people. The first playable loop was ordered as a brief before any Three.js work started.",

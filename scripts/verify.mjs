@@ -84,6 +84,9 @@ const CASE_STUDY_FORBIDDEN = [
   "GOC-79",
   "GOC-81",
   "Tracking",
+  "chicken-and-egg",
+  "invent the method by running it",
+  "both product and lab",
 ];
 
 const DEMO_URLS = [
