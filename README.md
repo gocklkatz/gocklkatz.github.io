@@ -8,13 +8,16 @@ This repository is **only** the company site. Demo applications stay on Vercel; 
 
 ## What the site presents
 
-- Company story and tagline
-- Four live demo cards, each linking out to its own Vercel host:
-  - [Ameisenwerkstatt](https://gocklkatz-ameisenwerkstatt.vercel.app)
-  - [Bienenstock](https://gocklkatz-bienenstock.vercel.app)
-  - [Simplified](https://gocklkatz-simplified.vercel.app)
-  - [Arbeitsmarkt](https://gocklkatz-arbeitsmarkt.vercel.app)
-- Public contact: [gocklkatz@gmail.com](mailto:gocklkatz@gmail.com)
+1. **Company positioning** — AI Enhanced Software Development; public author Hermito Katt
+2. **Services / outcomes** — four concrete offerings, who it’s for, and the human/AI responsibility split
+3. **Proof / process** — complete builds, independent deploys, verified by running
+4. **Demonstration product teaser** — LLM NPC Showcase (Three.js); status *Work in progress / Not playable yet*
+5. **Existing demos (secondary proof)** — live Vercel hosts retained:
+   - [Ameisenwerkstatt](https://gocklkatz-ameisenwerkstatt.vercel.app)
+   - [Bienenstock](https://gocklkatz-bienenstock.vercel.app)
+   - [Simplified](https://gocklkatz-simplified.vercel.app)
+   - [Arbeitsmarkt](https://gocklkatz-arbeitsmarkt.vercel.app)
+6. **Contact** — email only: [gocklkatz@gmail.com](mailto:gocklkatz@gmail.com)
 
 ## Stack
 
@@ -34,7 +37,7 @@ Production-shaped preview:
 ```bash
 npm run build
 npm run preview      # http://127.0.0.1:4321  (serves dist/)
-npm run verify       # asserts contact, demo links, and live demo HTTP 200s
+npm run verify       # asserts company-first IA, services, teaser honesty, demo links, and live demo HTTP 200s
 ```
 
 `npm run check` runs `astro check` (TypeScript / Astro diagnostics).
