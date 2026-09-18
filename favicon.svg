@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Gocklkatz Inc">
+  <rect width="32" height="32" rx="7" fill="#07010f"/>
+  <path fill="#1a0a2e" stroke="#a855f7" stroke-width="1.2" d="M8 22 V10 h16 v4 h-8 v8 z"/>
+  <circle cx="22" cy="10" r="2.1" fill="#e9b4ff"/>
+</svg>

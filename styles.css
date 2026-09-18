@@ -1,0 +1,262 @@
+:root {
+  --bg: #07010f;
+  --text: #f7f7fb;
+  --muted: #c5c5d4;
+  --gold: #f0b429;
+  --gold-soft: #ffd36e;
+  --focus: #d8b4fe;
+  --font: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica,
+    Arial, sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--text);
+  background: radial-gradient(80rem 40rem at 50% 18%, #2a0a4a 0%, transparent 52%),
+    radial-gradient(50rem 30rem at 80% 70%, #1a0530 0%, transparent 48%), var(--bg);
+  font-family: var(--font);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(7, 1, 15, 0.18) 0%, transparent 42%),
+    linear-gradient(180deg, rgba(7, 1, 15, 0.35) 0%, transparent 18%, transparent 70%, rgba(7, 1, 15, 0.72) 100%);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 40;
+  padding: 0.55rem 0.85rem;
+  border-radius: 8px;
+  background: var(--gold);
+  color: #1a1408;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus-visible {
+  top: 1rem;
+}
+
+a {
+  color: var(--gold);
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--gold-soft);
+}
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: clamp(1.1rem, 2.4vw, 1.7rem) clamp(1.2rem, 3.5vw, 2.4rem);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: inherit;
+}
+
+.brand__name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.brand__tagline {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+
+.nav a {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--gold);
+}
+
+.hero {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.25rem 5rem;
+  text-align: center;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2.6rem, 8.4vw, 6.1rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.55);
+}
+
+.hero__tagline {
+  margin: 0.85rem 0 0;
+  color: var(--gold);
+  font-size: clamp(1.15rem, 3.1vw, 2.05rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 6px 28px rgba(0, 0, 0, 0.5);
+}
+
+.contact {
+  position: relative;
+  z-index: 2;
+  min-height: 42vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 4rem 1.25rem 5.5rem;
+  text-align: center;
+}
+
+.contact__kicker {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.contact h2 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.contact p {
+  margin: 0.15rem 0 0;
+}
+
+.contact__email {
+  color: var(--gold);
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact__email:hover,
+.contact__email:focus-visible {
+  color: var(--gold-soft);
+  text-decoration: underline;
+}
+
+.missing {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 6rem 1.25rem 4rem;
+  text-align: center;
+}
+
+.missing h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: -0.04em;
+}
+
+.missing__copy {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page-404 {
+  background:
+    radial-gradient(60rem 32rem at 50% 0%, #2a0a4a 0%, transparent 55%), var(--bg);
+}
+
+@media (max-width: 640px) {
+  .brand__tagline {
+    max-width: 16rem;
+  }
+
+  .contact__email {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
